@@ -16,6 +16,10 @@
 > - 不进行文件修改操作（除非明确是记录信息）
 > - 不运行命令或脚本
 
+> **例外 - Agent 权限**：
+> - `update-knowledge-topics` agent 允许修改 `.claude/rules/knowledge-retrieval.md` 文件以更新主题映射表
+> - `log-operation` agent 允许修改 `active/YYYY-MM-DD.md` 文件以记录操作日志
+
 ---
 
 详细规则已拆分到 `.claude/rules/` 目录：
