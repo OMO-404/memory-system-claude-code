@@ -1,0 +1,25 @@
+## SessionStart Hook
+
+### 启动时自动执行
+- **类型**: command
+- **命令**: `powershell -NoProfile -ExecutionPolicy Bypass -File .claude/scripts/archive-active.ps1`
+
+### 功能说明
+每次启动 Claude 时，自动执行归档检测脚本，将 `projects/` 目录中非当前日期的文件移动到 `archived/`。
+
+### JSON 格式
+```json
+{
+  "SessionStart": [
+    {
+      "matcher": {},
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/scripts/archive-active.ps1"
+        }
+      ]
+    }
+  ]
+}
+```

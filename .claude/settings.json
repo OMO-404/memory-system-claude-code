@@ -9,5 +9,25 @@
         }
       ]
     }
+  ],
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -ExecutionPolicy Bypass -File \".claude/scripts/notify.ps1\" -Title \"memory-system\" -Message \"会话已结束\""
+        }
+      ]
+    }
+  ],
+  "PermissionRequest": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -ExecutionPolicy Bypass -File \".claude/scripts/notify.ps1\" -Title \"memory-system\" -Message \"权限请求中...\""
+        }
+      ]
+    }
   ]
 }
