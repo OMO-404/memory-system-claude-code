@@ -1,0 +1,20 @@
+# Claude Code
+.claude/settings.local.json
+
+# Operating Systems
+.DS_Store
+Thumbs.db
+
+# Content (只追踪结构，不追踪内容)
+active/*
+knowledge/*
+projects/*
+archived/*
+templates/*
+
+# 保留目录结构
+!active/.gitkeep
+!knowledge/.gitkeep
+!projects/.gitkeep
+!archived/.gitkeep
+!templates/.gitkeep

@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "PreToolUse": {
+      "autoArchive": {
+        "enabled": true,
+        "runOnce": true,
+        "script": "powershell -Command \"Get-ChildItem -Path 'projects' -Filter '*.md' | Where-Object { $_.Name -notlike ((Get-Date -Format 'yyyy-MM-dd') + '*') } | Move-Item -Destination 'archived/' -Force\""
+      }
+    }
+  }
+}
