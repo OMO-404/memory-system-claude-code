@@ -1,11 +1,13 @@
 {
-  "hooks": {
-    "PreToolUse": {
-      "autoArchive": {
-        "enabled": true,
-        "runOnce": true,
-        "script": "powershell -Command \"Get-ChildItem -Path 'projects' -Filter '*.md' | Where-Object { $_.Name -notlike ((Get-Date -Format 'yyyy-MM-dd') + '*') } | Move-Item -Destination 'archived/' -Force\""
-      }
+  "SessionStart": [
+    {
+      "matcher": {},
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -NoProfile -Command \"if (Test-Path 'projects') { Get-ChildItem -Path 'projects' -Filter '*.md' | Where-Object { $_.Name -notlike ((Get-Date -Format 'yyyy-MM-dd') + '*') } | ForEach-Object { Move-Item -Path $_.FullName -Destination 'archived/' -Force } }\""
+        }
+      ]
     }
-  }
+  ]
 }
