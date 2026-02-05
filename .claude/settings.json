@@ -5,7 +5,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/scripts/archive-active.ps1"
+          "command": "node .claude/scripts/archive-active.js"
         }
       ]
     }
@@ -15,7 +15,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "powershell -ExecutionPolicy Bypass -File \".claude/scripts/notify.ps1\" -Title \"memory-system\" -Message \"会话已结束\""
+          "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"会话已结束\""
         }
       ]
     }
@@ -25,7 +25,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "powershell -ExecutionPolicy Bypass -File \".claude/scripts/notify.ps1\" -Title \"memory-system\" -Message \"权限请求中...\""
+          "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"权限请求中...\""
         }
       ]
     }

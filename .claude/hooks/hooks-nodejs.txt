@@ -1,0 +1,79 @@
+# Hooks 配置备份 (Node.js 版本)
+
+## SessionStart Hook
+
+### 启动时自动执行
+- **类型**: command
+- **命令**: `node .claude/scripts/archive-active.js`
+
+### 功能说明
+每次启动 Claude 时，自动执行归档检测脚本，将 `active/` 目录中非当前日期的文件移动到 `archived/`。
+
+### JSON 格式
+```json
+{
+  "SessionStart": [
+    {
+      "matcher": {},
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node .claude/scripts/archive-active.js"
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+## Stop Hook
+
+### 会话结束时执行
+- **类型**: command
+- **命令**: `node .claude/scripts/notify.js -Title "memory-system" -Message "会话已结束"`
+
+### 功能说明
+每次会话结束时，发送桌面通知。
+
+### JSON 格式
+```json
+{
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"会话已结束\""
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+## PermissionRequest Hook
+
+### 权限请求时执行
+- **类型**: command
+- **命令**: `node .claude/scripts/notify.js -Title "memory-system" -Message "权限请求中..."`
+
+### 功能说明
+当需要用户授权操作时，发送桌面通知。
+
+### JSON 格式
+```json
+{
+  "PermissionRequest": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"权限请求中...\""
+        }
+      ]
+    }
+  ]
+}
+```
