@@ -1,33 +1,38 @@
 {
-  "SessionStart": [
-    {
-      "matcher": {},
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node .claude/scripts/archive-active.js"
-        }
-      ]
-    }
-  ],
-  "Stop": [
-    {
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"会话已结束\""
-        }
-      ]
-    }
-  ],
-  "PermissionRequest": [
-    {
-      "hooks": [
-        {
-          "type": "command",
-          "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"权限请求中...\""
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/archive-active.js"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/scripts/show-todos.js"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"会话已结束\""
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/notify.js -Title \"memory-system\" -Message \"权限请求中...\""
+          }
+        ]
+      }
+    ]
+  }
 }

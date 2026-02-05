@@ -3,22 +3,27 @@
 ## SessionStart Hook
 
 ### 启动时自动执行
-- **类型**: command
-- **命令**: `node .claude/scripts/archive-active.js`
+- **命令 1**: `node .claude/scripts/archive-active.js` - 归档旧文件
+- **命令 2**: `node .claude/scripts/show-todos.js` - 显示待办事项
 
 ### 功能说明
-每次启动 Claude 时，自动执行归档检测脚本，将 `active/` 目录中非当前日期的文件移动到 `archived/`。
+每次启动 Claude 时：
+1. 自动执行归档检测脚本，将 `active/` 目录中非当前日期的文件移动到 `archived/`
+2. 读取 `todo/` 目录并显示所有待办事项
 
 ### JSON 格式
 ```json
 {
   "SessionStart": [
     {
-      "matcher": {},
       "hooks": [
         {
           "type": "command",
           "command": "node .claude/scripts/archive-active.js"
+        },
+        {
+          "type": "command",
+          "command": "node .claude/scripts/show-todos.js"
         }
       ]
     }
